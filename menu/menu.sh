@@ -97,7 +97,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "                                                                                          "
 echo -e "\e[33m• Current Time        = $( date -d "0 days" +"%d-%m-%Y | %X" )"
 echo -e "\e[33m• Current Domain      = $( cat /etc/xray/domain )"
-echo -e "\e[33m• ISP                 = $(cat /root/.isp)${NC}"
+#echo -e "\e[33m• ISP                 = $(cat /root/.isp)${NC}"
 echo -e "\e[33m• Server Resource     = RAM = $persenmemori% | CPU = $persencpu%"
 echo -e "        "
 echo -e "$COLOR1└────────────────────────────────────────────────────────────┘${NC}"
