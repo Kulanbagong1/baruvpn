@@ -3,9 +3,9 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 
 clear 
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;100;33m          • SYSTEM MENU •          \E[0m"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$COLOR1┌────────────────────────────────────────────────────────────┐${NC}"
+echo -e "                     << SISTEM MENU >>                    \E[0m"
+echo -e "$COLOR1└────────────────────────────────────────────────────────────┘${NC}"
 echo -e ""
 echo -e " [\e[36m•1\e[0m] Panel Domain"
 echo -e " [\e[36m•2\e[0m] Change Port All Account"
