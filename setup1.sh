@@ -86,3 +86,125 @@ read -rp "Input ur ns-domain : " -e nsdomen
 echo "$nsdomen" > /etc/xray/nsdomain
 echo "$nsdomen" > /root/nsdomain
 clear
+#install ssh ovpn
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install SSH / WS               $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
+clear
+wget https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+#Instal Xray
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green          Install XRAY              $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
+clear
+
+wget https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+clear
+#Instal SlowDNS
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green          Install SLOWDNS              $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
+cat> /root/.profile << END
+# ~/.profile: executed by Bourne-compatible login shells.
+
+if [ "$BASH" ]; then
+  if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+  fi
+fi
+
+mesg n || true
+clear
+menu
+END
+chmod 644 /root/.profile
+
+if [ -f "/root/log-install.txt" ]; then
+rm /root/log-install.txt > /dev/null 2>&1
+fi
+if [ -f "/etc/afak.conf" ]; then
+rm /etc/afak.conf > /dev/null 2>&1
+fi
+if [ ! -f "/etc/log-create-user.log" ]; then
+echo "Log All Account " > /etc/log-create-user.log
+fi
+history -c
+echo $serverV > /opt/.ver
+aureb=$(cat /home/re_otm)
+b=11
+if [ $aureb -gt $b ]
+then
+gg="PM"
+else
+gg="AM"
+fi
+curl -sS ifconfig.me > /etc/myipvps
+echo " "
+echo "=====================-[ OTTIN NETWORK ]-===================="
+echo ""
+echo "------------------------------------------------------------"
+echo ""
+echo ""
+echo "   >>> Service & Port"  | tee -a log-install.txt
+echo "   - OpenSSH    : 443,80,22"  | tee -a log-install.txt
+echo "   - SlowDNS  : 443,53,2222" | tee -a log-install.txt
+echo "   - SSH Websocket  : 80" | tee -a log-install.txt
+echo "   - SSH SSL Websocket  : 443" | tee -a log-install.txt
+echo "   - SSL/TLS  : 443" | tee -a log-install.txt
+echo "   - Stunnel4    : 447, 777" | tee -a log-install.txt
+echo "   - Dropbear    : 109, 143" | tee -a log-install.txt
+echo "   - Badvpn    : 7100-7900" | tee -a log-install.txt
+echo "   - OpenVPN-TCP  : 443,1194" | tee -a log-install.txt
+echo "   - OpenVPN-UDP  : 2200" | tee -a log-install.txt
+echo "   - OpenVPN-SSL  : 443" | tee -a log-install.txt
+echo "   - Nginx    : 81" | tee -a log-install.txt
+echo "   - Vmess GRPC    : 443" | tee -a log-install.txt
+echo "   - Vmess TLS    : 443" | tee -a log-install.txt
+echo "   - Vmess None TLS  : 80" | tee -a log-install.txt
+echo "   - Vless GRPC    : 443" | tee -a log-install.txt
+echo "   - Vless TLS    : 443" | tee -a log-install.txt
+echo "   - Vless None TLS  : 80" | tee -a log-install.txt
+echo "   - Trojan GRPC    : 443" | tee -a log-install.txt
+echo "   - Trojan WS    : 443" | tee -a log-install.txt
+echo "   - Trojan Go    : 443" | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
+echo "   - Timezone    : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
+echo "   - Fail2Ban    : [ON]"  | tee -a log-install.txt
+echo "   - Dflate    : [ON]"  | tee -a log-install.txt
+echo "   - IPtables    : [ON]"  | tee -a log-install.txt
+echo "   - Auto-Reboot    : [ON]"  | tee -a log-install.txt
+echo "   - IPv6      : [OFF]"  | tee -a log-install.txt
+echo "   - Autoreboot On  : $aureb:00 $gg GMT +7" | tee -a log-install.txt
+echo "   - AutoKill Multi Login User" | tee -a log-install.txt
+echo "   - Auto Delete Expired Account" | tee -a log-install.txt
+echo "   - Fully automatic script" | tee -a log-install.txt
+echo "   - VPS settings" | tee -a log-install.txt
+echo "   - Admin Control" | tee -a log-install.txt
+echo "   - Change port" | tee -a log-install.txt
+echo "   - Full Orders For Various Services" | tee -a log-install.txt
+echo ""
+echo ""
+echo "------------------------------------------------------------"
+echo ""
+echo "===============-[ Script Created By ADAM SIJA ]-==============="
+echo -e ""
+echo ""
+echo "" | tee -a log-install.txt
+rm /root/setup.sh >/dev/null 2>&1
+rm /root/ins-xray.sh >/dev/null 2>&1
+rm /root/insshws.sh >/dev/null 2>&1
+secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
+echo -e "
+"
+echo -ne "[ ${yell}WARNING${NC} ] Do you want to reboot now ? (y/n)? "
+read answer
+if [ "$answer" == "${answer#[Yy]}" ] ;then
+exit 0
+else
+reboot
+fi
