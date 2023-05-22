@@ -44,70 +44,107 @@ echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 PID=`ps -ef |grep -v grep | grep sshws |awk '{print $2}'`
 
 if [[ ! -z "${PID}" ]]; then
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m            TRIAL SSH              \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Username : $Login"
-echo -e "Password : $Pass"
-echo -e "Expired On : $exp"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "IP : $IP"
-echo -e "Host : $domen"
-echo -e "OpenSSH : $opensh"
-echo -e "Dropbear: $db"
-echo -e "SSH-WS : $portsshws"
-echo -e "SSH-SSL-WS : $wsssl"
-echo -e "SSL/TLS : $ssl"
-echo -e "Port Squid : $sqd"
-echo -e "OHP SSH : $OhpSSH"
-echo -e "OHP Dropbear : $OhpDB"
-echo -e "OHP OpenVPN : $OhpOVPN"
-echo -e "UDPGW  : 7100-7300"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "OpenVPN Config : http://$IP:81/"
-#echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Payload WSS"
+echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$COLOR1│${NC} ${COLBG1}               • SSH PANEL MENU •              ${NC} $COLOR1│$NC"
+echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "Username    : $Login" | tee -a /etc/log-create-user.log
+echo -e "Password    : $Pass" | tee -a /etc/log-create-user.log
+echo -e "Expired On  : $exp" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "IP          : $IP" | tee -a /etc/log-create-user.log
+echo -e "Host        : $domen" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "NsDomain    : $dnsdomain" | tee -a /etc/log-create-user.log
+echo -e "PubKey      : $dnskey" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "SlowDNS     : 443,53,22" | tee -a /etc/log-create-user.log
+echo -e "OpenSSH     : $opensh" | tee -a /etc/log-create-user.log
+echo -e "Dropbear    : $db" | tee -a /etc/log-create-user.log
+echo -e "SSH-WS      : $portsshws" | tee -a /etc/log-create-user.log
+echo -e "SSH-SSL-WS  : $wsssl" | tee -a /etc/log-create-user.log
+echo -e "SSL/TLS     : $ssl" | tee -a /etc/log-create-user.log
+echo -e "UDPGW       : 7100-7300" | tee -a /etc/log-create-user.log
+echo -e "OpenVPN-TCP : $ovpn" | tee -a /etc/log-create-user.log
+echo -e "OpenVPN-UDP : $ovpn2" | tee -a /etc/log-create-user.log
+echo -e "OpenVPN-SSL : 443,990" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "OVPN TCP    : http://$IP:89/tcp.ovpn" | tee -a /etc/log-create-user.log
+echo -e "OVPN UDP    : http://$IP:89/udp.ovpn" | tee -a /etc/log-create-user.log
+echo -e "OVPN SSL    : http://$IP:89/ssl.ovpn" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "\E[0;41;36m            SET SLOWDNS            \E[0m" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "1.1.1.1:${dnskey}@${Login}:${Pass}@${dnsdomain}" | tee -a /etc/log-create-user.log
+echo -e "8.8.8.8:${dnskey}@${Login}:${Pass}@${dnsdomain}" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
 echo -e "
-GET wss://isi_bug_disini [protocol][crlf]Host: ${domen}[crlf]Upgrade: websocket[crlf][crlf]
-"
-echo -e "Payload WS"
+GET / [protocol][crlf]Host: [host][crlf]Connection: Keep-Alive[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf][crlf]
+" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
 echo -e "
-GET / HTTP/1.1[crlf]Host: $domen[crlf]Upgrade: websocket[crlf][crlf]
-"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-
+GET wss://bug.com/ [protocol][crlf]Host: [host][crlf]Connection: Keep-Alive[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf][crlf]
+" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "
+GET / [protocol][crlf]Host: $domen[crlf]Connection: Keep-Alive[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf][crlf]
+" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "
+GET wss://bug.com/ [protocol][crlf]Host: $domen[crlf]Connection: Keep-Alive[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf][crlf]
+" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
 else
-
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m            TRIAL SSH              \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Username : $Login"
-echo -e "Password : $Pass"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "IP : $IP"
-echo -e "Host : $domen"
-echo -e "OpenSSH : $opensh"
-echo -e "Dropbear: $db"
-echo -e "SSH-WS : $portsshws"
-echo -e "SSH-SSL-WS : $wsssl"
-echo -e "SSL/TLS : $ssl"
-echo -e "Port Squid : $sqd"
-echo -e "OHP SSH : $OhpSSH"
-echo -e "OHP Dropbear : $OhpDB"
-echo -e "OHP OpenVPN : $OhpOVPN"
-echo -e "UDPGW  : 7100-7300"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "OpenVPN Config : http://$IP:81/"
-#echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Payload WSS"
+echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$COLOR1│${NC} ${COLBG1}               • SSH PANEL MENU •              ${NC} $COLOR1│$NC"
+echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "Username    : $Login" | tee -a /etc/log-create-user.log
+echo -e "Password    : $Pass" | tee -a /etc/log-create-user.log
+echo -e "Expired On  : $exp" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "IP          : $IP" | tee -a /etc/log-create-user.log
+echo -e "Host        : $domen" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "NsDomain    : $dnsdomain" | tee -a /etc/log-create-user.log
+echo -e "PubKey      : $dnskey" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "SlowDNS     : 443,53,22" | tee -a /etc/log-create-user.log
+echo -e "OpenSSH     : $opensh" | tee -a /etc/log-create-user.log
+echo -e "Dropbear    : $db" | tee -a /etc/log-create-user.log
+echo -e "SSH-WS      : $portsshws" | tee -a /etc/log-create-user.log
+echo -e "SSH-SSL-WS  : $wsssl" | tee -a /etc/log-create-user.log
+echo -e "SSL/TLS     : $ssl" | tee -a /etc/log-create-user.log
+echo -e "UDPGW       : 7100-7300" | tee -a /etc/log-create-user.log
+echo -e "OpenVPN-TCP : $ovpn" | tee -a /etc/log-create-user.log
+echo -e "OpenVPN-UDP : $ovpn2" | tee -a /etc/log-create-user.log
+echo -e "OpenVPN-SSL : 443,990" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "OVPN TCP    : http://$IP:89/tcp.ovpn" | tee -a /etc/log-create-user.log
+echo -e "OVPN UDP    : http://$IP:89/udp.ovpn" | tee -a /etc/log-create-user.log
+echo -e "OVPN SSL    : http://$IP:89/ssl.ovpn" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "\E[0;41;36m            SET SLOWDNS            \E[0m" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "1.1.1.1:${dnskey}@${Login}:${Pass}@${dnsdomain}" | tee -a /etc/log-create-user.log
+echo -e "8.8.8.8:${dnskey}@${Login}:${Pass}@${dnsdomain}" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
 echo -e "
-GET wss://isi_bug_disini [protocol][crlf]Host: ${domen}[crlf]Upgrade: websocket[crlf][crlf]
-"
-echo -e "Payload WS"
+GET / [protocol][crlf]Host: [host][crlf]Connection: Keep-Alive[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf][crlf]
+" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
 echo -e "
-GET / HTTP/1.1[crlf]Host: $domen[crlf]Upgrade: websocket[crlf][crlf]
-"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+GET wss://bug.com/ [protocol][crlf]Host: [host][crlf]Connection: Keep-Alive[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf][crlf]
+" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "
+GET / [protocol][crlf]Host: $domen[crlf]Connection: Keep-Alive[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf][crlf]
+" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
+echo -e "
+GET wss://bug.com/ [protocol][crlf]Host: $domen[crlf]Connection: Keep-Alive[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf][crlf]
+" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
 fi
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
