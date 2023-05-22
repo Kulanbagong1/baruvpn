@@ -23,13 +23,13 @@ wget -O /etc/systemd/system/ws-nontls.service https://raw.githubusercontent.com/
 
 
 #System OpenSSH Websocket-SSH Python
-wget -O /etc/systemd/system/ws-openssh.service https://raw.githubusercontent.com/sallxd/sl/main/sshws/service-wsopenssh && chmod +x /etc/systemd/system/ws-openssh.service
+wget -O /etc/systemd/system/ws-openssh.service https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/service-wsopenssh && chmod +x /etc/systemd/system/ws-openssh.service
 
 #System Dropbear Websocket-SSH Python
-wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/bracoli/v4/main/sshws/service-wsdropbear && chmod +x /etc/systemd/system/ws-dropbear.service
+wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/service-wsdropbear && chmod +x /etc/systemd/system/ws-dropbear.service
 
 #System SSL/TLS Websocket-SSH Python
-wget -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/bracoli/v4/main/sshws/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
+wget -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
 
 ##System Websocket-OpenVPN Python
 #wget -O /etc/systemd/system/ws-ovpn.service https://raw.githubusercontent.com/${GitUser}/test1/${namafolder}/main/ws-ovpn.service && chmod +x /etc/systemd/system/ws-ovpn.service
