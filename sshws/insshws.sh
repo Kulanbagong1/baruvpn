@@ -12,6 +12,7 @@ wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/bracoli/v4/m
 wget -O /usr/local/bin/openvpn https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/openvpn && chmod +x /usr/local/bin/openvpn
 
 #izin permision
+chmod +x /usr/local/bin/ws-nontls
 chmod +x /usr/local/bin/ws-openssh
 chmod +x /usr/local/bin/ws-dropbear
 chmod +x /usr/local/bin/ws-stunnel
