@@ -45,7 +45,13 @@ echo -e "\e[31mPermission Denied!\e[0m";
 exit 0
 fi
 clear
-
+#Sistem Version
+if [[ "$hst" != "$dart" ]]; then
+echo "$localip $(hostname)" >> /etc/hosts
+fi
+if [ -f "/root/log-install.txt" ]; then
+rm -fr /root/log-install.txt
+fi
 mkdir -p /etc/xray
 mkdir -p /etc/v2ray
 touch /etc/xray/domain
