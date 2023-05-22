@@ -19,7 +19,7 @@ chmod +x /usr/local/bin/ws-stunnel
 #chmod +x /usr/local/bin/ws-ovpn
 
 #System nontls Websocket-SSH python
-wget -O /etc/systemd/system/ws-openssh.service https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/ws-nontls.service
+wget -O /etc/systemd/system/ws-nontls.service https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/ws-nontls.service && chmod +x /etc/system/ws-nontls.service
 
 
 #System OpenSSH Websocket-SSH Python
@@ -37,6 +37,11 @@ wget -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com
 #restart service
 #
 systemctl daemon-reload
+#Enable & Start & Restart ws-openssh service
+systemctl enable ws-openssh.service
+systemctl start ws-openssh.service
+systemctl restart ws-openssh.service
+
 #Enable & Start & Restart ws-openssh service
 systemctl enable ws-openssh.service
 systemctl start ws-openssh.service
