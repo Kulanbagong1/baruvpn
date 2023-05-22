@@ -12,9 +12,10 @@ echo '/sbin/shutdown -r now' >> /usr/local/bin/reboot_otomatis
 chmod +x /usr/local/bin/reboot_otomatis
 fi
 clear
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[0;100;33m       • AUTO-REBOOT MENU •        \e[0m"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$COLOR1┌────────────────────────────────────────────────────────────┐${NC}"
+echo -e "                     << AUTO REBOOT MENU >>                    \E[0m"
+echo -e "$COLOR1└────────────────────────────────────────────────────────────┘${NC}"
+
 echo -e ""
 echo -e "[\e[36m•1\e[0m] Set Auto-Reboot Setiap 1 Jam"
 echo -e "[\e[36m•2\e[0m] Set Auto-Reboot Setiap 6 Jam"
@@ -57,9 +58,10 @@ echo "Auto-Reboot successfully TURNED OFF."
 elif test $x -eq 8; then
 if [ ! -e /root/log-reboot.txt ]; then
 	clear
-    echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "\e[0;100;33m        • AUTO-REBOOT LOG •        \e[0m"
-    echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "$COLOR1┌────────────────────────────────────────────────────────────┐${NC}"
+    echo -e "                     << AUTO REBOOT LOG >>                    \E[0m"
+    echo -e "$COLOR1└────────────────────────────────────────────────────────────┘${NC}"
+
     echo -e ""
     echo "No reboot activity found"
     echo -e ""
@@ -69,9 +71,10 @@ if [ ! -e /root/log-reboot.txt ]; then
     auto-reboot
 	else
 	clear
-    echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "\e[0;100;33m        • AUTO-REBOOT LOG •        \e[0m"
-    echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "$COLOR1┌────────────────────────────────────────────────────────────┐${NC}"
+    echo -e "                     << AUTO REBOOT LOG >>                    \E[0m"
+    echo -e "$COLOR1└────────────────────────────────────────────────────────────┘${NC}"
+
     echo -e ""    
 	echo 'LOG REBOOT'
 	cat /root/log-reboot.txt
@@ -83,9 +86,10 @@ if [ ! -e /root/log-reboot.txt ]; then
 fi
 elif test $x -eq 9; then
 clear
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[0;100;33m        • AUTO-REBOOT LOG •        \e[0m"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$COLOR1┌────────────────────────────────────────────────────────────┐${NC}"
+echo -e "                     << AUTO REBOOT LOG >>                    \E[0m"
+echo -e "$COLOR1└────────────────────────────────────────────────────────────┘${NC}"
+
 echo -e ""  
 echo "" > /root/log-reboot.txt
 echo "Auto Reboot Log successfully deleted!"
