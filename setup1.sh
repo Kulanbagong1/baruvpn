@@ -7,7 +7,7 @@ tyblue='\e[1;36m'
 NC='\e[0m'
 COLOR1='\033[0;35m'
 Repo="https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/"
-Repo1="https://raw.githubusercontent.com/rizkihdyt6/izinn/main/"
+Repo1="https://raw.githubusercontent.com/Kulanbagong1/izinn/main/"
 
 localip=$(hostname -I | cut -d\  -f1)
 hst=( `hostname` )
