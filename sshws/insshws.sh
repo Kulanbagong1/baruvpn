@@ -4,6 +4,8 @@
 cd
 
 #Install Script Websocket-SSH Python
+wget -q -O /usr/local/bin/ws-nontls https://raw.githubusercontent.com/whoimvpn/AutoScript/main/websocket/websocket.py
+chmod +x /usr/local/bin/ws-nontls
 wget -O /usr/local/bin/ws-openssh https://raw.githubusercontent.com/bracoli/v4/main/sshws/openssh-socket.py
 wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/bracoli/v4/main/sshws/dropbear-ws.py
 wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/bracoli/v4/main/sshws/ws-stunnel
