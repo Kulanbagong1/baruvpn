@@ -80,9 +80,9 @@ echo -e "OpenVPN-TCP : $ovpn" | tee -a /etc/log-create-user.log
 echo -e "OpenVPN-UDP : $ovpn2" | tee -a /etc/log-create-user.log
 echo -e "OpenVPN-SSL : 443,990" | tee -a /etc/log-create-user.log
 echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
-echo -e "OVPN TCP    : http://$IP:89/tcp.ovpn" | tee -a /etc/log-create-user.log
-echo -e "OVPN UDP    : http://$IP:89/udp.ovpn" | tee -a /etc/log-create-user.log
-echo -e "OVPN SSL    : http://$IP:89/ssl.ovpn" | tee -a /etc/log-create-user.log
+echo -e "OVPN TCP    : http://$IP:81/tcp.ovpn" | tee -a /etc/log-create-user.log
+echo -e "OVPN UDP    : http://$IP:81/udp.ovpn" | tee -a /etc/log-create-user.log
+echo -e "OVPN SSL    : http://$IP:81/ssl.ovpn" | tee -a /etc/log-create-user.log
 echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
 echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
 echo -e "\E[0;41;36m            SET SLOWDNS            \E[0m" | tee -a /etc/log-create-user.log
@@ -132,9 +132,9 @@ echo -e "OpenVPN-TCP : $ovpn" | tee -a /etc/log-create-user.log
 echo -e "OpenVPN-UDP : $ovpn2" | tee -a /etc/log-create-user.log
 echo -e "OpenVPN-SSL : 443,990" | tee -a /etc/log-create-user.log
 echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
-echo -e "OVPN TCP    : http://$IP:89/tcp.ovpn" | tee -a /etc/log-create-user.log
-echo -e "OVPN UDP    : http://$IP:89/udp.ovpn" | tee -a /etc/log-create-user.log
-echo -e "OVPN SSL    : http://$IP:89/ssl.ovpn" | tee -a /etc/log-create-user.log
+echo -e "OVPN TCP    : http://$IP:81/tcp.ovpn" | tee -a /etc/log-create-user.log
+echo -e "OVPN UDP    : http://$IP:81/udp.ovpn" | tee -a /etc/log-create-user.log
+echo -e "OVPN SSL    : http://$IP:81/ssl.ovpn" | tee -a /etc/log-create-user.log
 echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
 echo -e "$COLOR1─────────────────────────────────────────────────${NC}" | tee -a /etc/log-create-user.log
 echo -e "\E[0;41;36m            SET SLOWDNS            \E[0m" | tee -a /etc/log-create-user.log
