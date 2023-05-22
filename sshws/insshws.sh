@@ -6,9 +6,9 @@ cd
 #Install Script Websocket-SSH Python
 wget -q -O /usr/local/bin/ws-nontls https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/websocket.py
 
-wget -O /usr/local/bin/ws-openssh https://raw.githubusercontent.com/bracoli/v4/main/sshws/openssh-socket.py
-wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/bracoli/v4/main/sshws/dropbear-ws.py
-wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/bracoli/v4/main/sshws/ws-stunnel
+wget -O /usr/local/bin/ws-openssh https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/openssh-socket.py
+wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/dropbear-ws.py
+wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/ws-stunnel
 wget -O /usr/local/bin/openvpn https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/openvpn && chmod +x /usr/local/bin/openvpn
 
 #izin permision
