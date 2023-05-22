@@ -108,6 +108,9 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "$green          Install SLOWDNS              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
+clear
+
+wget https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/slowdns/install-sldns && chmod +x install-sldns && ./install-sldns
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
 
