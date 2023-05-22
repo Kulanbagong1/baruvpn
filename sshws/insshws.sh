@@ -18,6 +18,8 @@ chmod +x /usr/local/bin/ws-dropbear
 chmod +x /usr/local/bin/ws-stunnel
 #chmod +x /usr/local/bin/ws-ovpn
 
+#System nontls Websocket-SSH python
+wget -O /etc/systemd/system/ws-openssh.service
 
 #System OpenSSH Websocket-SSH Python
 wget -O /etc/systemd/system/ws-openssh.service https://raw.githubusercontent.com/sallxd/sl/main/sshws/service-wsopenssh && chmod +x /etc/systemd/system/ws-openssh.service
