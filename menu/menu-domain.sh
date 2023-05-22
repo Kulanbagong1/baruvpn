@@ -1,4 +1,6 @@
 #!/bin/bash
+COLOR1='\033[0;35m'
+COLOR2='\033[0;39m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 
