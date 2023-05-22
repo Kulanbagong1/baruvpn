@@ -180,6 +180,15 @@ clear
 wget https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 wget https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
+#Instal SlowDNS
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green          Install SLOWDNS              $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
+clear
+
+wget https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/slowdns/install-sldns && chmod +x install-sldns && ./install-sldns
+clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
 
