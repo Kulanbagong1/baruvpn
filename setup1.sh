@@ -111,6 +111,7 @@ sleep 2
 clear
 
 wget https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/slowdns/install-sldns && chmod +x install-sldns && ./install-sldns
+clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
 
