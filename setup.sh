@@ -16,21 +16,35 @@ green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 cd /root
 #System version number
-if [ "${EUID}" -ne 0 ]; then
-    echo "You need to run this script as root"
-    exit 1
-fi
-if [ "$(systemd-detect-virt)" == "openvz" ]; then
-    echo "OpenVZ is not supported"
-    exit 1
-fi
+COLOR1='\033[0;35m'
+Repo="https://raw.githubusercontent.com/Kulanbagong1/baruvpn/main/"
+Repo1="https://raw.githubusercontent.com/Kulanbagong1/izinn/main/"
 
 localip=$(hostname -I | cut -d\  -f1)
 hst=( `hostname` )
 dart=$(cat /etc/hosts | grep -w `hostname` | awk '{print $2}')
-if [[ "$hst" != "$dart" ]]; then
-echo "$localip $(hostname)" >> /etc/hosts
+# Getting
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+CEKEXPIRED () {
+    today=$(date -d +1day +%Y-%m-%d)
+    Exp1=$(curl -sS ${Repo1}ip | grep $MYIP | awk '{print $3}')
+    if [[ $today < $Exp1 ]]; then
+    echo -e "\e[32mSTATUS SCRIPT AKTIF...\e[0m"
+    else
+    echo -e "\e[31mSCRIPT ANDA EXPIRED!\e[0m";
+    exit 0
 fi
+}
+IZIN=$(curl -sS ${Repo1}ip | awk '{print $4}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
+echo -e "\e[32mPermission Accepted...\e[0m"
+CEKEXPIRED
+else
+echo -e "\e[31mPermission Denied!\e[0m";
+exit 0
+fi
+clear
 
 mkdir -p /etc/xray
 mkdir -p /etc/v2ray
